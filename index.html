@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGIS Kota Bandung</title>  
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css">
+    <link rel="stylesheet" href="https://balladaniel.github.io/leaflet-dataclassification/leaflet-dataclassification.css">
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
+    <script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
+    <script src="https://balladaniel.github.io/leaflet-dataclassification/leaflet-dataclassification.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+    <!--Header Section-->
+    <header id="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="asset/logobandung.png" alt="Logo" width="100">
+                <h1>WebGIS Kota Bandung</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#hero-section">Home</a></li>
+                    <li><a href="#map-section">Map</a></li>
+                    <li><a href="#data-section">Data</a></li>
+                    <li><a href="#author-section">Author</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!--Hero Section-->
+    <div id="hero-section" class="hero-section">
+        <div class="hero-content">
+            <h1>WebGIS Basis Data Spasial Kota Bandung</h1>
+            <p>Halaman untuk Melakukan Eksplorasi Basis Data Spasial di Kota Bandung</p>
+        </div>
+    </div>
+    <!--Map Section-->
+    <div id="map-section">
+        <h2>Jelajahi WebGIS Basis Data Spasial Kota Bandung</h2>
+        <div id="map">
+        <!-- akan muncul peta disini -->
+        </div>
+    </div>
+
+    <!--Data Section-->
+    <style>
+        .data-item {
+            text-align: center
+        }
+        .description p {
+            text-align: justify;
+        }
+        .author-content {
+            text-align: center;
+        }
+</style>
+<div id="data-section"> 
+    <h2>Data Tersedia</h2> 
+    <div class="container"> 
+        <div class="column"> 
+            <div class="data-item"> 
+                <img src="asset/walikota.png" alt="Image 1"> 
+                <div class="description"> 
+                    <h3>Profil Walikota</h3> 
+                    <p>​Saat ini, Wali Kota Bandung dijabat oleh A. Koswara sebagai Penjabat (Pj) Wali Kota. Ia resmi dilantik pada 20 September 2024 oleh Penjabat Gubernur Jawa Barat, Bey Machmudin, menggantikan Bambang Tirtoyuliono yang sebelumnya menjabat selama satu tahun. Penggantian ini merupakan bagian dari rotasi dan mutasi biasa dalam lingkungan Aparatur Sipil Negara (ASN), sesuai dengan evaluasi berkala oleh Kementerian Dalam Negeri. A. Koswara sebelumnya menjabat sebagai Kepala Dinas Perhubungan (Dishub) Provinsi Jawa Barat. Sebagai Pj Wali Kota Bandung, ia bertugas menjalankan roda pemerintahan kota hingga terpilihnya Wali Kota definitif melalui pemilihan umum. Sebelumnya, Bambang Tirtoyuliono menjabat sebagai Pj Wali Kota Bandung sejak 20 September 2023 hingga 20 September 2024. Selama masa jabatannya, ia dikenal dengan berbagai terobosan, termasuk program revitalisasi kawasan Braga melalui inisiatif "Braga Beken", pengelolaan sampah yang lebih baik, serta upaya pelestarian budaya lokal. Dengan pengalaman sebelumnya sebagai Kepala Dinas Bina Marga dan Penataan Ruang (DBMPR) Provinsi Jawa Barat, Bambang memiliki latar belakang kuat dalam bidang infrastruktur dan tata ruang. Ia juga pernah menjabat sebagai Kepala Dinas Energi dan Sumber Daya Mineral (ESDM) serta Kepala Dinas Pemberdayaan Masyarakat dan Desa (DPMD) di tingkat provinsi.</p> 
+                </div> 
+            </div> 
+        </div> 
+        <div class="column"> 
+            <div class="data-item">
+            <img src="asset/download.jpeg" alt="Image 1"> 
+                                <div class="description"> 
+                                    <h3>Pemerintah Kota Bandung</h3> 
+                                    <p>Kota Bandung merupakan ibu kota Provinsi Jawa Barat yang terletak di antara 107° Bujur Timur dan 6°55' Lintang Selatan. Lokasinya yang strategis menjadikan Bandung penting dalam hal komunikasi, perekonomian, dan keamanan. Awalnya, Kabupaten Bandung berdiri lebih dahulu sekitar pertengahan abad ke-17 Masehi, dengan Bupati pertama Tumenggung Wiraangunangun. Pusat pemerintahan Kabupaten Bandung saat itu berada di Krapyak (sekarang Dayeuhkolot). Pada masa Bupati ke-6, R.A. Wiranatakusumah II, pembangunan Jalan Raya Pos oleh Gubernur Jenderal Daendels mendorong pemindahan ibu kota Kabupaten Bandung ke lokasi yang lebih strategis, dekat Jalan Raya Pos, untuk mendukung mobilitas dan administrasi kolonial. Pemindahan ibu kota ini sebenarnya sudah direncanakan oleh Bupati R.A. Wiranatakusumah II sebelum instruksi dari Daendels keluar. Lokasi baru dipilih di tepi barat Sungai Cikapundung, di lahan yang saat itu berupa hutan. Faktor utama pemindahan adalah kondisi Krapyak yang kurang strategis dan sering banjir. Setelah melalui proses perpindahan bertahap, pembangunan kota baru dipimpin langsung oleh sang bupati. Kota Bandung akhirnya diresmikan sebagai ibu kota Kabupaten Bandung dengan surat keputusan tertanggal 25 September 1810, dan R.A. Wiranatakusumah II dikenang sebagai pendiri (the founding father) Kota Bandung..</p> 
+                                </div> 
+                            </div> 
+                        </div> 
+                        <div class="column"> 
+                            <div class="data-item"> 
+                                <img src="asset/download (1).jpeg" alt="Image 1"> 
+                                <div class="description"> 
+                                    <h3>Wilayah Administrasi Kecamatan</h3> 
+                                    <p>Kota Bandung terbagi ke dalam 30 kecamatan yang berfungsi sebagai wilayah administratif di bawah pemerintah kota. Setiap kecamatan dipimpin oleh seorang camat dan memiliki peran penting dalam mengelola pelayanan publik, pembangunan wilayah, serta pengawasan pemerintahan di tingkat lokal. Kecamatan-kecamatan ini memiliki karakteristik yang beragam, mencerminkan kekayaan budaya, pendidikan, bisnis, dan gaya hidup di Kota Bandung. Misalnya, Kecamatan Coblong dikenal sebagai kawasan pendidikan dan wisata kuliner, sementara Bandung Wetan menjadi pusat pemerintahan dan bisnis. Di sisi lain, Sumur Bandung memiliki nilai sejarah tinggi sebagai pusat perbelanjaan dan wisata kota tua, sedangkan Kiaracondong dan Ujungberung mencerminkan kawasan pemukiman dan distribusi yang penting. Karena letak geografis Kota Bandung berada di cekungan dan dikelilingi pegunungan, pembagian kecamatan ini juga mempertimbangkan faktor-faktor seperti pengelolaan tata ruang kota, sistem drainase, serta pembangunan infrastruktur yang seimbang antara pusat kota dan pinggiran. Setiap kecamatan terbagi lagi menjadi beberapa kelurahan, yang menjadi unit pemerintahan terkecil dalam melayani kebutuhan masyarakat.</p> 
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="container"> 
+                        <div class="column"> 
+                            <div class="data-item"> 
+                                <img src="asset/download (2).jpeg" alt="Image 1"> 
+                                <div class="description"> 
+                                    <h3>Sejarah Kota Bandung</h3> 
+                                    <p>Kota Bandung bermula dari wilayah Kabupaten Bandung yang dibentuk sekitar pertengahan abad ke-17 Masehi, dengan Bupati pertama Tumenggung Wiraangunangun. Awalnya, pusat pemerintahan Kabupaten Bandung berada di Krapyak (sekarang Dayeuhkolot), namun karena lokasinya yang sering terkena banjir dan kurang strategis, rencana pemindahan ibu kota sudah dipertimbangkan oleh Bupati ke-6, R.A. Wiranatakusumah II. Pada masa pemerintahan Gubernur Jenderal Hindia Belanda, Herman Willem Daendels, dibangunlah Jalan Raya Pos (Groote Postweg) yang membentang dari Anyer hingga Panarukan. Untuk mendukung pembangunan jalan ini dan memudahkan akses pemerintahan kolonial, Daendels memerintahkan pemindahan pusat pemerintahan Kabupaten Bandung ke daerah dekat Sungai Cikapundung, yang lebih strategis. Pemindahan ibu kota Kabupaten Bandung ke lokasi baru tersebut dilaksanakan sekitar akhir tahun 1808 hingga awal 1809. Bupati beserta rakyatnya memulai pembangunan di lahan baru itu, dan akhirnya, pada 25 September 1810, Bandung diresmikan sebagai ibu kota Kabupaten Bandung. Pembangunan dan pemindahan ini merupakan inisiatif langsung dari Bupati R.A. Wiranatakusumah II, yang kemudian dikenal sebagai pendiri atau "the founding father" Kota Bandung. Sejak saat itu, Bandung berkembang pesat menjadi salah satu kota penting di Jawa Barat, baik sebagai pusat pemerintahan, perdagangan, pendidikan, maupun budaya.</p> 
+                                </div> 
+                            </div> 
+                        </div> 
+                        <div class="column"> 
+                            <div class="data-item"> 
+                                <img src="asset/download (3).jpeg" alt="Image 1"> 
+                                <div class="description"> 
+                                    <h3>Tempat Wisata dan Rekreasi</h3> 
+                                    <p>Kota Bandung, yang terletak di Jawa Barat, dikenal dengan berbagai tempat wisata alam yang memukau dan menawarkan udara segar, menjadikannya tujuan liburan yang populer. Salah satu tempat ikonik adalah Kawah Putih, sebuah danau kawah vulkanik yang memiliki air berwarna putih kehijauan, yang terletak di Ciwidey, sekitar 50 km dari pusat kota. Selain itu, Tangkuban Perahu, gunung berapi yang masih aktif, juga menjadi tujuan wisata populer dengan kawah-kawah yang bisa dijelajahi oleh pengunjung. Di sekitar kawasan ini, wisatawan bisa menikmati pemandangan alam yang indah serta udara sejuk pegunungan. Bandung juga memiliki berbagai taman rekreasi seperti Trans Studio Bandung, sebuah taman hiburan indoor terbesar di Indonesia, yang menawarkan berbagai wahana seru untuk semua usia. Selain wisata alam, Bandung juga terkenal dengan destinasi wisata belanja dan kuliner. Jalan Dago dan kawasan sekitar Paris Van Java Mall menawarkan berbagai pusat perbelanjaan yang menarik bagi wisatawan yang ingin berburu barang fashion atau suvenir khas Bandung. Kota ini juga dikenal dengan berbagai tempat makan dan kafe yang Instagramable, yang menyajikan berbagai hidangan khas Sunda dan kuliner modern. Di sepanjang jalan, pengunjung dapat menemukan berbagai kedai kopi dan restoran yang menawarkan pemandangan kota serta suasana yang nyaman. Bandung juga memiliki banyak taman kota yang dapat menjadi tempat yang ideal untuk bersantai, seperti Taman Hutan Raya Ir. H. Djuanda, yang menawarkan jejak-jejak alam yang menghubungkan beberapa tempat bersejarah di sekitar kota.</p> 
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
+                <div class="author-content"> 
+                    <h2>Tentang Pembuat</h2> 
+                    <img src="asset/WhatsApp Image 2025-04-27 at 00.08.04_7a55f41d.jpg" alt="Profile Picture" class="profile-picture"> 
+                    <div class="author-name"> 
+                        <h3>Aria Nugraha Pratama</h3> 
+                    </div> 
+                    <p>Aria Nugraha Pratama, mahasiswa Sains Informasi Geografi di Universitas Pendidikan Indonesia (UPI) dengan minat mendalam dalam pemanfaatan teknologi SIG untuk analisis data spasial. Sebagai warga Bandung, Aria aktif mengembangkan proyek-proyek berbasis geografi untuk mendukung pemahaman lebih baik tentang potensi dan perkembangan kota ini.</p> 
+                </div> 
+            </div> 
+
+            
+<script src="js/script.js"></script>
+</body>
+</html>
